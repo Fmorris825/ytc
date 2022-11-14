@@ -25,7 +25,7 @@ def post_comment_to_video(request):
         serializer.save(user=request.user)
         return Response(serializer.errors, status=status.HTTP_201_CREATED)
 
-@api_view(['PUT'])
+@api_view(['PUT',])
 @permission_classes([IsAuthenticated])
 def edit_comment_by_id(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -34,11 +34,3 @@ def edit_comment_by_id(request, pk):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_video_comments_by_id(request, pk):
-    if request.method == 'GET':
-        comments  = get_object_or_404(Comment, pk=pk)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
