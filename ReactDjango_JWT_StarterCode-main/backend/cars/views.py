@@ -21,12 +21,16 @@ def get_all_cars(request):
 def user_cars(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+
+
     if request.method == 'POST':
         serializer = CarSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
     elif request.method == 'GET':
         cars = Car.objects.filter(user_id=request.user.id)
         serializer = CarSerializer(cars, many=True)
