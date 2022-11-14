@@ -8,7 +8,6 @@ from .models import Comment
 
 @api_view(['GET', 'POST'])
 def get_all_comments(request):
-    
     if request.method == 'GET':
         comments = Comment.objects.all()
         serializer = CommentSerializer(comments, many=True)
