@@ -23,7 +23,7 @@ def post_comment_to_video(request):
         serializer = CommentSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(user=request.user)
-        return Response(serializer.errors, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['PUT',])
 @permission_classes([IsAuthenticated])
