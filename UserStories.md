@@ -54,13 +54,13 @@ Accepts a value from the request’s URL (The id of the comment I am trying to g
 Returns a 200 status code.
 Responds with all replies from the database that are related to the comment id sent in the URL. -->
 
-(5 points) As a developer, I want to create a POST endpoint that does the following things:
+<!-- (5 points) As a developer, I want to create a POST endpoint that does the following things:
 
 Requires JWT authorization (Protected route).
 Accepts a value from the request’s URL (The id of the comment the reply will be connected to). 
 Accepts a body object from the request in the form of a Reply model. 
 Adds the new reply to the database associated with the comment id sent in the URL and the user who sent the JWT in the request.
 Returns a 201 status code. 
-Responds with the newly created reply object.
+Responds with the newly created reply object. -->
 
 (5 points) As a developer, I want to use Postman to make a POST, PUT, and both GET requests (get by id and get all) request to my REST web API, save it to a collection, and then export it as a JSON from Postman.
