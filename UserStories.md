@@ -24,7 +24,7 @@ user – ForeignKey
 comment – ForeignKey
 text – CharField  -->
 
-(7.5 points) As a developer, I want to create a GET endpoint that does the following things:
+<!-- (7.5 points) As a developer, I want to create a GET endpoint that does the following things:
 
 Accepts a value from the request’s URL (The YouTube video id I am trying to get comments for).
 Returns a 200 status code.
@@ -36,23 +36,23 @@ Requires JWT authorization (Protected route).
 Accepts a body object from the request in the form of a Comment model. 
 Adds the new comment to the database associated with the user who sent the JWT in the request.
 Returns a 201 status code. 
-Responds with the newly created comment object.
+Responds with the newly created comment object. -->
 
-(5 points) As a developer, I want to create a PUT endpoint that does the following things:
+<!-- (5 points) As a developer, I want to create a PUT endpoint that does the following things:
 
 Requires JWT authorization (Protected route).
 Accepts a value from the request’s URL (The id of the comment to be updated). 
 Accepts a body object from the request in the form of a Comment model. 
 Finds the comment in the Comments table and updates that comment with the properties that were sent in the request’s body. 
 Returns a 200 status code. 
-Responds with the newly updated comment object.
+Responds with the newly updated comment object. -->
 
-(5 points) As a developer, I want to create a GET endpoint that does the following things:
+<!-- (5 points) As a developer, I want to create a GET endpoint that does the following things:
 
 Requires JWT authorization (Protected route).
 Accepts a value from the request’s URL (The id of the comment I am trying to get replies for). 
 Returns a 200 status code.
-Responds with all replies from the database that are related to the comment id sent in the URL.
+Responds with all replies from the database that are related to the comment id sent in the URL. -->
 
 (5 points) As a developer, I want to create a POST endpoint that does the following things:
 
