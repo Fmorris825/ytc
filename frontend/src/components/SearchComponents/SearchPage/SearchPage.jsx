@@ -3,7 +3,7 @@ import axios from "axios";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
 
-const SearchPage = ({}) => {
+const SearchPage = (props) => {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const apiKey = "AIzaSyBZV2_Rx1yNNGH6ppTToQ7ijzhKwZWNShw";
@@ -17,17 +17,23 @@ const SearchPage = ({}) => {
       `https://www.googleapis.com/youtube/v3/search?q=${query}}&key=${apiKey}`
     );
     setSearchResults(response.data);
-    console.log(searchResults);
+    console.log(searchResults.items);
   }
 
-  return (
-    <div>
-      <SearchBar query={query} setQuery={setQuery} />
-      {searchResults.map((video, index) => {
-        return <SearchResult video={video} />;
-      })}
-    </div>
-  );
+  if (searchResults.length > 0) {
+    return (
+      <div>
+        <SearchBar query={query} setQuery={setQuery} />
+        <SearchResult searchResults={searchResults} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <SearchBar query={query} setQuery={setQuery} />
+      </div>
+    );
+  }
 };
 
 export default SearchPage;

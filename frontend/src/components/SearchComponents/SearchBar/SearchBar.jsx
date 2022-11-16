@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ setQuery, getQuery }) => {
+const SearchBar = ({ setQuery }) => {
   const [tempQuery, setTempQuery] = useState("");
 
   function handleSubmit(event) {

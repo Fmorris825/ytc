@@ -1,7 +1,13 @@
 import React from "react";
 
-const SearchResults = ({ video }) => {
-  return <div></div>;
+const SearchResult = ({ searchResults }) => {
+  return searchResults.items.map((result) => {
+    return (
+      <ul>
+        <li>{result.id.videoId}</li>
+      </ul>
+    );
+  });
 };
 
-export default SearchResults;
+export default SearchResult;
