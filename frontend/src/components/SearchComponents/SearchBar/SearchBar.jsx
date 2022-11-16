@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SearchBar = ({ query, setQuery }) => {
+const SearchBar = ({ setQuery, getQuery }) => {
+  const [tempQuery, setTempQuery] = useState("");
+
   function handleSubmit(event) {
     event.preventDefault();
-    setQuery(event);
+    setQuery(tempQuery);
   }
 
   return (
@@ -13,8 +15,8 @@ const SearchBar = ({ query, setQuery }) => {
         required
         placeholder="Tell me what you want, what you really really want"
         size="50"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        value={tempQuery}
+        onChange={(event) => setTempQuery(event.target.value)}
       />
       <button>Okay go</button>
     </form>
