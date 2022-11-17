@@ -6,7 +6,7 @@ import SearchResult from "../SearchResult/SearchResult";
 const SearchPage = (props) => {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState({});
-  const apiKey = "AIzaSyBZV2_Rx1yNNGH6ppTToQ7ijzhKwZWNShw";
+  const apiKey = "AIzaSyClqSVB9oYxpNNomwLzAqftNXXE9KA1sVE";
 
   useEffect(() => {
     getQuery();
@@ -17,14 +17,16 @@ const SearchPage = (props) => {
       `https://www.googleapis.com/youtube/v3/search?q=${query}}&key=${apiKey}`
     );
     setSearchResults(response.data);
-    console.log(searchResults.items);
   }
 
-  if (searchResults.length > 0) {
+  console.log(searchResults.items);
+  if (searchResults.items.length > 0) {
     return (
       <div>
         <SearchBar query={query} setQuery={setQuery} />
-        <SearchResult searchResults={searchResults} />
+        {searchResults.items.map((result, index) => {
+          return <SearchResult result={result} key={index} />;
+        })}
       </div>
     );
   } else {

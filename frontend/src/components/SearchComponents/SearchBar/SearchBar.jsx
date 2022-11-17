@@ -16,7 +16,7 @@ const SearchBar = ({ setQuery }) => {
         placeholder="Tell me what you want, what you really really want"
         size="50"
         value={tempQuery}
-        onChange={(event) => setTempQuery(event.target.value)}
+        onSubmit={(event) => setTempQuery(event.target.value)}
       />
       <button>Okay go</button>
     </form>
