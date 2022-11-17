@@ -4,8 +4,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
 
 const SearchPage = (props) => {
-  const [query, setQuery] = useState("Modern Warfare");
-  const [searchResults, setSearchResults] = useState({});
+  const [query, setQuery] = useState("Dog");
+  const [searchResults, setSearchResults] = useState(false);
   const apiKey = "AIzaSyClqSVB9oYxpNNomwLzAqftNXXE9KA1sVE";
 
   useEffect(() => {
@@ -20,22 +20,19 @@ const SearchPage = (props) => {
   }
 
   console.log(searchResults.items);
-  if (searchResults)
-    return (
-      <div>
-        <SearchBar query={query} setQuery={setQuery} />
-        {searchResults.items.map((result, index) => {
-          return <SearchResult result={result} key={index} />;
-        })}
-      </div>
-    );
-  else {
-    return (
-      <div>
-        <SearchBar query={query} setQuery={setQuery} />
-      </div>
-    );
-  }
+  console.log(query);
+  return searchResults ? (
+    <div>
+      <SearchBar query={query} setQuery={setQuery} />
+      {searchResults.items.map((result, index) => {
+        return <SearchResult result={result} key={index} />;
+      })}
+    </div>
+  ) : (
+    <div>
+      <SearchBar query={query} setQuery={setQuery} />
+    </div>
+  );
 };
 
 export default SearchPage;
