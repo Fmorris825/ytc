@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SearchResult = ({ result }) => {
   return (
-    <ul>
-      <li>{result.id.videoId}</li>
-    </ul>
+    <div on click>
+      {/* {result.id.videoId} */}
+      <Link to="/VideoPlayer">Click to Watch!</Link>
+    </div>
   );
 };
 

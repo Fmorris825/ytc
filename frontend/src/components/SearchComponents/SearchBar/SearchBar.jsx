@@ -6,6 +6,7 @@ const SearchBar = ({ setQuery }) => {
   function handleSubmit(event) {
     event.preventDefault();
     setQuery(tempQuery);
+    setTempQuery("");
   }
 
   return (
@@ -16,7 +17,7 @@ const SearchBar = ({ setQuery }) => {
         placeholder="Tell me what you want, what you really really want"
         size="50"
         value={tempQuery}
-        onSubmit={(event) => setTempQuery(event.target.value)}
+        onChange={(event) => setTempQuery(event.target.value)}
       />
       <button>Okay go</button>
     </form>
