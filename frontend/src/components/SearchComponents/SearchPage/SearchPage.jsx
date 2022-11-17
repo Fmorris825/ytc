@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
+import { Container } from "react-bootstrap";
 
 const SearchPage = ({ setVideoId }) => {
   const [query, setQuery] = useState("");

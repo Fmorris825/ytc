@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import useAuth from "./hooks/useAuth";
 
 // Pages Imports
 // import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./components/SearchComponents/SearchPage/SearchPage";
-import VideoPlayer from "./components/VideosSection/VideoPlayer/VideoPlayer";
+import VideoPage from "./components/VideosSection/VideoPage/VideoPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -17,8 +18,12 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 // import PrivateRoute from "./utils/PrivateRoute";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
+
 function App() {
-  const [videoId, setVideoId] = useState("");
+  const [videoId, setVideoId] = useState("bfnl9d6rEX8");
+  const [user, token] = useAuth();
 
   return (
     <div>
@@ -28,9 +33,14 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
+          path="/VideoPage"
+          element={<VideoPage videoId={videoId} token={token} />}
+        />
+        <Route path="/SearchPage" element={<SearchPage token={token} />} />
+        {/* <Route
           path="/VideoPlayer"
           element={<VideoPlayer videoId={videoId} />}
-        />
+        /> */}
       </Routes>
 
       <Footer />

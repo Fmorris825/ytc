@@ -1,10 +1,17 @@
-import React, { useState } from "react";
-import VideoPlayer from "./VideoPlayer";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
-const VideoPage = ({ videoId }) => {
-  const [videoId, setVideoId] = useState("");
+import { Container } from "react-bootstrap";
+import CommentList from "../../CommentsSection/CommentList/CommentList";
 
-  return <VideoPlayer videoId={videoId} />;
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const VideoPage = ({ videoId, token }) => {
+  return (
+    <Container className="d-flex justify-content-between">
+      <CommentList videoId={videoId} token={token} />
+      <VideoPlayer videoId={videoId} />;
+    </Container>
+  );
 };
 
 export default VideoPage;

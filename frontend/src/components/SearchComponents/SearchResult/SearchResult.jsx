@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchResult = ({ setVideoId, result }) => {
   const navigate = useNavigate();
@@ -7,8 +7,8 @@ const SearchResult = ({ setVideoId, result }) => {
   function handleSelection(event) {
     event.preventDefault();
     setVideoId(result.id.videoId);
-    navigate("/VideoPlayer");
     console.log(`I clicked on ${result.snippet.title}`);
+    navigate("/VideoPage");
   }
 
   return (
