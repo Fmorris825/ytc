@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import VideoPlayer from "./VideoPlayer";
 
-const VideoPage = ({}) => {
-  return <div>Video Page!</div>;
+const VideoPage = ({ videoId }) => {
+  const [videoId, setVideoId] = useState("");
+
+  return <VideoPlayer videoId={videoId} />;
 };
 
 export default VideoPage;

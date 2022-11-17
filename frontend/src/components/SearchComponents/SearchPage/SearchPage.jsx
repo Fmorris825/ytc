@@ -3,8 +3,8 @@ import axios from "axios";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
 
-const SearchPage = (props) => {
-  const [query, setQuery] = useState("Dog");
+const SearchPage = ({ setVideoId }) => {
+  const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState(false);
   const apiKey = "AIzaSyClqSVB9oYxpNNomwLzAqftNXXE9KA1sVE";
 
@@ -25,7 +25,9 @@ const SearchPage = (props) => {
     <div>
       <SearchBar query={query} setQuery={setQuery} />
       {searchResults.items.map((result, index) => {
-        return <SearchResult result={result} key={index} />;
+        return (
+          <SearchResult setVideoId={setVideoId} result={result} key={index} />
+        );
       })}
     </div>
   ) : (

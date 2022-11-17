@@ -1,4 +1,5 @@
 // General Imports
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -17,14 +18,19 @@ import Footer from "./components/Footer/Footer";
 // import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+  const [videoId, setVideoId] = useState("");
+
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<SearchPage />} />
+        <Route path="/" element={<SearchPage setVideoId={setVideoId} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/VideoPlayer" element={<VideoPlayer />} />
+        <Route
+          path="/VideoPlayer"
+          element={<VideoPlayer videoId={videoId} />}
+        />
       </Routes>
 
       <Footer />

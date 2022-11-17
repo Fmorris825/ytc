@@ -1,12 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const SearchResult = ({ result }) => {
+const SearchResult = ({ setVideoId, result }) => {
+  const navigate = useNavigate();
+
+  function handleSelection(event) {
+    event.preventDefault();
+    setVideoId(result.id.videoId);
+    navigate("/VideoPlayer");
+    console.log(`I clicked on ${result.snippet.title}`);
+  }
+
   return (
-    <div on click>
-      {/* {result.id.videoId} */}
-      <Link to="/VideoPlayer">Click to Watch!</Link>
+    // <Link to="/VideoPlayer">
+    <div>
+      <img
+        src={result.snippet.thumbnails.default.url}
+        onClick={handleSelection}
+      />
+      <div onClick={handleSelection}>{result.snippet.title}</div>
     </div>
+    // {/* </Link> */}
   );
 };
 
