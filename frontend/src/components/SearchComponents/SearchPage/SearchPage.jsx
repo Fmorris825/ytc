@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResult from "../SearchResult/SearchResult";
+import VideoPlayer from "../../VideosSection/VideoPlayer/VideoPlayer";
 
 const SearchPage = (props) => {
   const [query, setQuery] = useState("");
@@ -27,6 +28,7 @@ const SearchPage = (props) => {
         {searchResults.items.map((result, index) => {
           return <SearchResult result={result} key={index} />;
         })}
+        <VideoPlayer />
       </div>
     );
   } else {
