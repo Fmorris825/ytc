@@ -10,16 +10,15 @@ import {
   Button,
 } from "react-bootstrap";
 
-const CommentForm = ({ getAllComments, videoId }) => {
+const CommentForm = ({ getAllComments, videoId, token }) => {
   const [commentText, setCommentText] = useState("");
-  const [user, token] = useAuth();
 
   async function addComment() {
     let newComment = {
       text: commentText,
       video_id: videoId,
     };
-    console.log(`On the CommentForm, the videoId is ${videoId}`);
+
     try {
       let response = await axios.post(
         `http://127.0.0.1:8000/api/comments/`,

@@ -1,8 +1,12 @@
 import React from "react";
 
-const Comment = ({ comment }) => {
+const Comment = ({ comment, user }) => {
   console.log(comment);
-  return <div>{comment.text}</div>;
+  return (
+    <div>
+      <h4>{user.username} says...</h4>"{comment.text}"
+    </div>
+  );
 };
 
 export default Comment;
