@@ -20,22 +20,38 @@ import Footer from "./components/Footer/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
+import { useEffect } from "react";
 
 function App() {
   const [videoId, setVideoId] = useState("");
   const [user, token] = useAuth();
+  const [activeVideo, setActiveVideo] = useState({});
 
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<SearchPage setVideoId={setVideoId} />} />
+        <Route
+          path="/"
+          element={
+            <SearchPage
+              setVideoId={setVideoId}
+              setActiveVideo={setActiveVideo}
+            />
+          }
+        />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path={`/VideoPage/${videoId}`}
-          element={<VideoPage videoId={videoId} token={token} />}
+          element={
+            <VideoPage
+              videoId={videoId}
+              token={token}
+              activeVideo={activeVideo}
+            />
+          }
         />
         <Route path="/SearchPage" element={<SearchPage token={token} />} />
         {/* <Route

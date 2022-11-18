@@ -5,11 +5,11 @@ import CommentList from "../../CommentsSection/CommentList/CommentList";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const VideoPage = ({ videoId, token }) => {
+const VideoPage = ({ videoId, token, activeVideo }) => {
   return (
     <Container className="d-flex justify-content-between">
       <CommentList videoId={videoId} token={token} />
-      <VideoPlayer videoId={videoId} />
+      <VideoPlayer videoId={videoId} activeVideo={activeVideo} />
     </Container>
   );
 };

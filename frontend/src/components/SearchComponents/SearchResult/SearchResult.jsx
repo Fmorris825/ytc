@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchResult = ({ setVideoId, result }) => {
+const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
   const navigate = useNavigate();
 
   function handleSelection(event) {
     event.preventDefault();
     setVideoId(result.id.videoId);
-    console.log(`I clicked on ${result.snippet.title}`);
+    setActiveVideo(result.snippet);
     navigate(`/VideoPage/${result.id.videoId}`);
   }
 

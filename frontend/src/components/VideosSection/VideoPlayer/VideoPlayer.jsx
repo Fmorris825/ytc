@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 import { Container } from "react-bootstrap";
 
-const VideoPlayer = ({ videoId }) => {
+const VideoPlayer = ({ videoId, activeVideo }) => {
+  console.log(activeVideo);
   return (
     <div>
       <Container>
-        <h1>Video player!</h1>
+        <h1>{activeVideo.title}</h1>
         <iframe
           id="ytplayer"
           type="text/html"
@@ -16,6 +17,7 @@ const VideoPlayer = ({ videoId }) => {
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
           frameborder="0"
         ></iframe>
+        <h6>{activeVideo.description}</h6>
         <Container>
           <Link to="/">Search Again!</Link>
         </Container>
