@@ -21,23 +21,25 @@ const SearchPage = ({ setVideoId, setActiveVideo }) => {
   }
 
   return searchResults ? (
-    <div>
+    <Container>
       <SearchBar query={query} setQuery={setQuery} />
-      {searchResults.items.map((result, index) => {
-        return (
-          <SearchResult
-            setVideoId={setVideoId}
-            result={result}
-            key={index}
-            setActiveVideo={setActiveVideo}
-          />
-        );
-      })}
-    </div>
+      <div>
+        {searchResults.items.map((result, index) => {
+          return (
+            <SearchResult
+              setVideoId={setVideoId}
+              result={result}
+              key={index}
+              setActiveVideo={setActiveVideo}
+            />
+          );
+        })}
+      </div>
+    </Container>
   ) : (
-    <div>
+    <Container>
       <SearchBar query={query} setQuery={setQuery} />
-    </div>
+    </Container>
   );
 };
 

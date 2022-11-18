@@ -19,13 +19,20 @@ const CommentList = ({ videoId }) => {
     getAllComments();
   }, [comments.length, videoId]);
 
-  return (
+  return user ? (
     <div>
       <CommentForm
         getAllComments={getAllComments}
         token={token}
         videoId={videoId}
       />
+      {comments.map((comment, index) => {
+        return <h5>{<Comment comment={comment} key={index} user={user} />}</h5>;
+      })}
+    </div>
+  ) : (
+    <div>
+      <h2>Please Login to Post a Comment. </h2>
       {comments.map((comment, index) => {
         return <h5>{<Comment comment={comment} key={index} user={user} />}</h5>;
       })}

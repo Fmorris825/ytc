@@ -83,9 +83,9 @@ Main Stories
 
 <!-- (5 points) As a user, I want to see the title and description of the currently playing video. -->
 
-(5 points) As a user, I want to see a grouping of videos related to my selected video. (API CALL #2)
+<!-- (5 points) As a user, I want to see a grouping of videos related to my selected video. (API CALL #2) -->
 
-(5 points) As a user, I want to be able to select a video to be played from the list of related videos to my search.
+<!-- (5 points) As a user, I want to be able to select a video to be played from the list of related videos to my search. -->
 
 <!-- (7.5 points) As a registered user, I want to add a comment to a video in the comment section (Using Axios to make POST requests to my backend API). -->
 
