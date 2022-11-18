@@ -27,37 +27,28 @@ const CommentList = ({ videoId }) => {
         getAllComments={getAllComments}
         token={token}
         videoId={videoId}
-      />
-      <ListGroup>
-        {comments.map((comment, index) => {
-          return (
-            <ListGroupItem>
-              {<Comment comment={comment} key={index} user={user} />}
-            </ListGroupItem>
-          );
-        })}
-      </ListGroup>
-    </div>
+        />
+        </div>
   ) : (
     <div>
       <h5>
         <Link to="/login">Login</Link> or <Link to="/register">register</Link>{" "}
-        to comment.
-      </h5>
-      <ListGroup as="ul">
-        {comments.map((comment, index) => {
-          return (
-            <ListGroupItem
-              as="li"
-              className="flex-column justify-content-start align-items-start"
-            >
-              {<Comment comment={comment} key={index} user={user} />}
-            </ListGroupItem>
-          );
-        })}
-      </ListGroup>
-    </div>
-  );
+        to comment. 
+      </h5> </div> )
+    <div>
+    <ListGroup as="ul">
+      {comments.map((comment, index) => {
+        return (
+          <ListGroupItem
+            as="li"
+            className="flex-column justify-content-start align-items-start"
+          >
+            {<Comment comment={comment} key={index} user={user} />}
+          </ListGroupItem>
+        );
+      })}
+    </ListGroup>
+    </div>;
 };
 
 export default CommentList;
