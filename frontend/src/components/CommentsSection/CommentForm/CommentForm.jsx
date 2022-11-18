@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 
 import {
@@ -9,26 +10,31 @@ import {
   Button,
 } from "react-bootstrap";
 
-const CommentForm = ({ getAllComments, videoId, token }) => {
+const CommentForm = ({ getAllComments, videoId }) => {
   const [commentText, setCommentText] = useState("");
+  const [user, token] = useAuth();
 
   async function addComment() {
     let newComment = {
       text: commentText,
-      video_id: videoId,
+      video_id: "0I8tOGUYM-s",
     };
-    let response = await axios.post(
-      `http://127.0.0.1:8000/api/comments/${videoId}/`,
-      newComment,
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
-    if (response.status === 201) {
-      await getAllComments();
+    try {
+      let response = await axios.post(
+        `http://127.0.0.1:8000/api/comments/`,
+        newComment,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error.response.data);
     }
+    // if (response.status === 201) {
+    //   await getAllComments();
+    // }
   }
 
   const handleSubmit = (event) => {

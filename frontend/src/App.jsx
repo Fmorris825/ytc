@@ -5,7 +5,7 @@ import "./App.css";
 import useAuth from "./hooks/useAuth";
 
 // Pages Imports
-// import HomePage from "./pages/HomePage/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./components/SearchComponents/SearchPage/SearchPage";
@@ -22,7 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 
 function App() {
-  const [videoId, setVideoId] = useState("bfnl9d6rEX8");
+  const [videoId, setVideoId] = useState("");
   const [user, token] = useAuth();
 
   return (
@@ -31,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SearchPage setVideoId={setVideoId} />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/VideoPage"

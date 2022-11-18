@@ -7,7 +7,8 @@ import { Container } from "react-bootstrap";
 const SearchPage = ({ setVideoId }) => {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState(false);
-  const apiKey = "AIzaSyClqSVB9oYxpNNomwLzAqftNXXE9KA1sVE";
+  // const apiKeyFred = "AIzaSyClqSVB9oYxpNNomwLzAqftNXXE9KA1sVE";
+  const apiKeyTyler = "AIzaSyD0HSMf1NgDUe8TImck2hvUW8lGGrMY1BQ";
 
   useEffect(() => {
     getQuery();
@@ -15,7 +16,7 @@ const SearchPage = ({ setVideoId }) => {
 
   async function getQuery() {
     let response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?q=${query}}&part=snippet&key=${apiKey}`
+      `https://www.googleapis.com/youtube/v3/search?q=${query}}&part=snippet&key=${apiKeyTyler}`
     );
     setSearchResults(response.data);
   }

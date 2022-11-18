@@ -11,6 +11,7 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
 
   const [cars, setCars] = useState([]);
+  const [user, token] = useAuth();
 
   useEffect(() => {
     const fetchCars = async () => {
