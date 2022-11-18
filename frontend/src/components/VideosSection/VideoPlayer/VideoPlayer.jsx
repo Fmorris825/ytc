@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, renderMatches } from "react-router-dom";
 
-import { Container } from "react-bootstrap";
+import { Container, Button, Collapse } from "react-bootstrap";
 
 const VideoPlayer = ({ videoId, activeVideo }) => {
-  console.log(activeVideo);
+  const [open, setOpen] = useState(false);
+
   return (
     <div>
       <Container>
@@ -17,7 +18,21 @@ const VideoPlayer = ({ videoId, activeVideo }) => {
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
           frameborder="0"
         ></iframe>
-        <h6>{activeVideo.description}</h6>
+        <div className="d-flex justify-content-start">
+          <Button
+            className="button"
+            variant="success"
+            onClick={() => setOpen(!open)}
+            aria-controls="example-collapse-text"
+            aria-expanded={open}
+          >
+            Display Description
+          </Button>
+          <Collapse in={open}>
+            <div id="example-collapse-text">{activeVideo.description}</div>
+          </Collapse>
+        </div>
+
         <Container>
           <Link to="/">Search Again!</Link>
         </Container>

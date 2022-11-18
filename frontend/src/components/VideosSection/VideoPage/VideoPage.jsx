@@ -16,12 +16,14 @@ const VideoPage = ({
   return (
     <Container className="d-flex justify-content-between">
       <CommentList videoId={videoId} token={token} />
-      <VideoPlayer videoId={videoId} activeVideo={activeVideo} />
-      <RelatedVideos
-        videoId={videoId}
-        setVideoId={setVideoId}
-        setActiveVideo={setActiveVideo}
-      />
+      <Container>
+        <VideoPlayer videoId={videoId} activeVideo={activeVideo} />
+        <RelatedVideos
+          videoId={videoId}
+          setVideoId={setVideoId}
+          setActiveVideo={setActiveVideo}
+        />
+      </Container>
     </Container>
   );
 };

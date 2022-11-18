@@ -55,7 +55,9 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
           value={commentText}
         />
       </FormGroup>
-      <Button type="submit">Comment</Button>
+      <Button className="button" variant="success" type="submit">
+        Comment
+      </Button>
     </Form>
   );
 };

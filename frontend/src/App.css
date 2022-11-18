@@ -56,3 +56,25 @@ button:hover {
   padding: 3px 7px;
   font-size: 17px;
 }
+
+.shadow {
+  box-shadow: 15px 15px 5px black;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.button {
+  color: #ffac1c;
+  box-shadow: 3px 3px 8px darkgray;
+  margin: 5px;
+}
+
+.body {
+  position: relative;
+}

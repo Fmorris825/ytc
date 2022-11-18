@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API_KEYS from "../../../API_KEYS";
-import SearchResult from "../../SearchComponents/SearchResult/SearchResult";
+import VideoCards from "../VideoCards/VideoCards";
 import axios from "axios";
 
 const RelatedVideos = ({ videoId, setVideoId, setActiveVideo }) => {
@@ -23,7 +23,7 @@ const RelatedVideos = ({ videoId, setVideoId, setActiveVideo }) => {
     <div>
       {relatedVideos.items.map((result, index) => {
         return (
-          <SearchResult
+          <VideoCards
             result={result}
             key={index}
             setVideoId={setVideoId}

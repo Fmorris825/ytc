@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const SearchBar = ({ setQuery }) => {
   const [tempQuery, setTempQuery] = useState("");
@@ -19,7 +20,9 @@ const SearchBar = ({ setQuery }) => {
         value={tempQuery}
         onChange={(event) => setTempQuery(event.target.value)}
       />
-      <button>Okay go</button>
+      <Button className="button" variant="success">
+        Okay go
+      </Button>
     </form>
   );
 };

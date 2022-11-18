@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
+const VideoCards = ({ setVideoId, result, setActiveVideo }) => {
   const navigate = useNavigate();
 
   function handleSelection(event) {
@@ -13,15 +13,15 @@ const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
 
   return (
     // <Link to="/VideoPlayer">
-    <div className="d-flex justify-content-start m-5">
+    <div className="d-flex justify-content-start m-5 flex-direction">
       <img
-        className="shadow mb-10 bg-white rounded pointer"
-        src={result.snippet.thumbnails.medium.url}
+        className="shadow"
+        src={result.snippet.thumbnails.default.url}
         onClick={handleSelection}
       />
       <div className="d-flex align-items-center flex-direction: row">
         <h6
-          className="d-flex justify-content-start m-2 pointer"
+          className="d-flex justify-content-start m-2"
           onClick={handleSelection}
         >
           {result.snippet.title}
@@ -35,4 +35,4 @@ const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
   );
 };
 
-export default SearchResult;
+export default VideoCards;
