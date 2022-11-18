@@ -1,7 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import API_KEYS from "../../../API_KEYS";
+import SearchResult from "../../SearchComponents/SearchResult/SearchResult";
+import axios from "axios";
 
-const RelatedVideos = ({}) => {
-  return <div>Related Videos!</div>;
+const RelatedVideos = ({ videoId, setVideoId, setActiveVideo }) => {
+  const [relatedVideos, setRelatedVideos] = useState(false);
+
+  useEffect(() => {
+    getRelatedVideos();
+  }, [videoId]);
+
+  async function getRelatedVideos() {
+    let response = await axios.get(
+      `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=${API_KEYS.apiKey}`
+    );
+    setRelatedVideos(response.data);
+  }
+
+  console.log(`Here's the data for related videos: ${relatedVideos.items}`);
+
+  return relatedVideos ? (
+    <div>
+      {relatedVideos.items.map((result, index) => {
+        return (
+          <SearchResult
+            result={result}
+            key={index}
+            setVideoId={setVideoId}
+            setActiveVideo={setActiveVideo}
+          />
+        );
+      })}
+      ;
+    </div>
+  ) : null;
 };
 
 export default RelatedVideos;

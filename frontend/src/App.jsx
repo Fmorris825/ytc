@@ -50,6 +50,8 @@ function App() {
               videoId={videoId}
               token={token}
               activeVideo={activeVideo}
+              setVideoId={setVideoId}
+              setActiveVideo={setActiveVideo}
             />
           }
         />

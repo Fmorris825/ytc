@@ -17,7 +17,7 @@ const CommentList = ({ videoId }) => {
 
   useEffect(() => {
     getAllComments();
-  }, [comments.length]);
+  }, [comments.length, videoId]);
 
   return (
     <div>
