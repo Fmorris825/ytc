@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CommentForm from "../CommentForm/CommentForm";
 import Comment from "../Comment/Comment";
@@ -13,11 +13,19 @@ const CommentList = ({ videoId, token }) => {
     setComments(response.data);
   }
 
+  useEffect(() => {
+    getAllComments();
+  }, [comments.length]);
+
   return (
     <div>
-      <CommentForm getAllComments={getAllComments} token={token} />
+      <CommentForm
+        getAllComments={getAllComments}
+        token={token}
+        videoId={videoId}
+      />
       {comments.map((comment, index) => {
-        return <h6>{<Comment comment={comment} key={index} />}</h6>;
+        return <h5>{<Comment comment={comment} key={index} />}</h5>;
       })}
     </div>
   );

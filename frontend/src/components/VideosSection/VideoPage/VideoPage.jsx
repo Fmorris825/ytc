@@ -9,7 +9,7 @@ const VideoPage = ({ videoId, token }) => {
   return (
     <Container className="d-flex justify-content-between">
       <CommentList videoId={videoId} token={token} />
-      <VideoPlayer videoId={videoId} />;
+      <VideoPlayer videoId={videoId} />
     </Container>
   );
 };

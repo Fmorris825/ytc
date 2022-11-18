@@ -17,8 +17,9 @@ const CommentForm = ({ getAllComments, videoId }) => {
   async function addComment() {
     let newComment = {
       text: commentText,
-      video_id: "0I8tOGUYM-s",
+      video_id: videoId,
     };
+    console.log(`On the CommentForm, the videoId is ${videoId}`);
     try {
       let response = await axios.post(
         `http://127.0.0.1:8000/api/comments/`,
@@ -29,12 +30,12 @@ const CommentForm = ({ getAllComments, videoId }) => {
           },
         }
       );
+      if (response.status === 201) {
+        await getAllComments();
+      }
     } catch (error) {
       console.log(error.response.data);
     }
-    // if (response.status === 201) {
-    //   await getAllComments();
-    // }
   }
 
   const handleSubmit = (event) => {
