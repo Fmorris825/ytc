@@ -19,10 +19,10 @@ const SearchPage = ({ setVideoId }) => {
       `https://www.googleapis.com/youtube/v3/search?q=${query}}&part=snippet&key=${apiKeyTyler}`
     );
     setSearchResults(response.data);
+    console.log(searchResults);
   }
-
   console.log(searchResults);
-  console.log(query);
+
   return searchResults ? (
     <div>
       <SearchBar query={query} setQuery={setQuery} />

@@ -34,7 +34,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path="/VideoPage"
+          path={`/VideoPage/${videoId}`}
           element={<VideoPage videoId={videoId} token={token} />}
         />
         <Route path="/SearchPage" element={<SearchPage token={token} />} />

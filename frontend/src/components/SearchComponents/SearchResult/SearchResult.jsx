@@ -8,7 +8,7 @@ const SearchResult = ({ setVideoId, result }) => {
     event.preventDefault();
     setVideoId(result.id.videoId);
     console.log(`I clicked on ${result.snippet.title}`);
-    navigate("/VideoPage");
+    navigate(`/VideoPage/${result.id.videoId}`);
   }
 
   return (
