@@ -4,6 +4,7 @@ import CommentForm from "../CommentForm/CommentForm";
 import Comment from "../Comment/Comment";
 import useAuth from "../../../hooks/useAuth";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CommentList = ({ videoId }) => {
   const [comments, setComments] = useState([]);
@@ -39,10 +40,22 @@ const CommentList = ({ videoId }) => {
     </div>
   ) : (
     <div>
-      <h2>Please Login to Post a Comment. </h2>
-      {comments.map((comment, index) => {
-        return <h5>{<Comment comment={comment} key={index} user={user} />}</h5>;
-      })}
+      <h5>
+        <Link to="/login">Login</Link> or <Link to="/register">register</Link>{" "}
+        to comment.
+      </h5>
+      <ListGroup as="ul">
+        {comments.map((comment, index) => {
+          return (
+            <ListGroupItem
+              as="li"
+              className="flex-column justify-content-start align-items-start"
+            >
+              {<Comment comment={comment} key={index} user={user} />}
+            </ListGroupItem>
+          );
+        })}
+      </ListGroup>
     </div>
   );
 };

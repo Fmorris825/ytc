@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import API_KEYS from "../../../API_KEYS";
 
 const SearchPage = ({ setVideoId, setActiveVideo }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("9/11 peaches inside job");
   const [searchResults, setSearchResults] = useState(false);
 
   useEffect(() => {
