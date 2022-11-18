@@ -3,6 +3,7 @@ import axios from "axios";
 import CommentForm from "../CommentForm/CommentForm";
 import Comment from "../Comment/Comment";
 import useAuth from "../../../hooks/useAuth";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 
 const CommentList = ({ videoId }) => {
   const [comments, setComments] = useState([]);
@@ -26,9 +27,15 @@ const CommentList = ({ videoId }) => {
         token={token}
         videoId={videoId}
       />
-      {comments.map((comment, index) => {
-        return <h5>{<Comment comment={comment} key={index} user={user} />}</h5>;
-      })}
+      <ListGroup>
+        {comments.map((comment, index) => {
+          return (
+            <ListGroupItem>
+              {<Comment comment={comment} key={index} user={user} />}
+            </ListGroupItem>
+          );
+        })}
+      </ListGroup>
     </div>
   ) : (
     <div>
