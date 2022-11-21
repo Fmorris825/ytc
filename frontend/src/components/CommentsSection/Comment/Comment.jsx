@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Comment.css";
 import axios from "axios";
-import ReplyForm from "../../ReplyForm/ReplyForm";
+import ReplyForm from "../../RepliesSection/ReplyForm/ReplyForm";
+import ReplyList from "../../RepliesSection/ReplyList/ReplyList";
 
 const Comment = ({ comment, user, token }) => {
-  const [reply, setReply] = useState({});
+  const [replies, setReplies] = useState([]);
 
   async function getAllReplies() {
     const response = await axios.get(
@@ -15,12 +16,13 @@ const Comment = ({ comment, user, token }) => {
         },
       }
     );
-    setReply(response.data);
+    setReplies(response.data);
   }
   return (
     <div className="ms-2 me-auto d-flex flex-column justify-content-start align-items-start">
       <div className="comment-user">{comment.user.username}:</div>
       <div className="comment-text">{comment.text}</div>
+      <ReplyList replies={replies} token={token} />
       <ReplyForm
         comment={comment}
         getAllReplies={getAllReplies}
