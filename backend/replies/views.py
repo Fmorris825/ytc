@@ -19,7 +19,7 @@ def display_replies(request,pk):
     elif request.method == 'POST':
         serializer = ReplySerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save(user=request.user)
+        serializer.save(user=request.user, comment_id=pk)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 # @api_view(['POST'])

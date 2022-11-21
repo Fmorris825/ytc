@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Comment.css";
 import axios from "axios";
 import ReplyForm from "../../RepliesSection/ReplyForm/ReplyForm";
@@ -6,6 +6,10 @@ import ReplyList from "../../RepliesSection/ReplyList/ReplyList";
 
 const Comment = ({ comment, user, token }) => {
   const [replies, setReplies] = useState([]);
+
+  useEffect(() => {
+    getAllReplies();
+  }, [replies]);
 
   async function getAllReplies() {
     const response = await axios.get(
