@@ -50,7 +50,7 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
         <FormGroup>
           <FormControl
             placeholder="Comment Here?"
-            className="shadow-sm p-1 mb-1 bg-body rounded input-box"
+            className="shadow rounded input-box"
             type="text"
             onChange={(event) => setCommentText(event.target.value)}
             value={commentText}

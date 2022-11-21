@@ -4,14 +4,14 @@ import { ListGroup, ListGroupItem } from "react-bootstrap";
 
 const ReplyList = ({ replies, token }) => {
   return (
-    <div>
+    <div className="d-flex align-self-end">
       <ListGroup as="ul">
         {replies.map((reply, index) => {
           // console.log(reply);
           return (
             <ListGroupItem
               as="li"
-              className="flex-column justify-content-start align-items-end m-1 shadow"
+              className="flex-column justify-content-end align-items-end m-1 shadow"
             >
               {<Reply reply={reply} key={index} token={token} />}
             </ListGroupItem>

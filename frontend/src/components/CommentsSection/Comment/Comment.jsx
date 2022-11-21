@@ -9,7 +9,7 @@ const Comment = ({ comment, user, token }) => {
 
   useEffect(() => {
     getAllReplies();
-  }, [replies]);
+  }, []);
 
   async function getAllReplies() {
     const response = await axios.get(
