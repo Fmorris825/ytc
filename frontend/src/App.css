@@ -77,4 +77,10 @@ img:hover {
 
 .body {
   position: relative;
+  background-color: whitesmoke;
+}
+
+.shadow {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
+    0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }

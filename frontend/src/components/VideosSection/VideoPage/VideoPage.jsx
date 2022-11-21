@@ -15,10 +15,10 @@ const VideoPage = ({
   setActiveVideo,
 }) => {
   return (
-    <div className="d-flex justify-content-between">
-      <Container className="comment-column d-flex justify-content-center">
+    <div className="d-flex">
+      <div className="comment-column d-flex">
         <CommentList videoId={videoId} token={token} />
-      </Container>
+      </div>
       <Container className="video-column">
         <VideoPlayer videoId={videoId} activeVideo={activeVideo} />
         <RelatedVideos

@@ -28,7 +28,7 @@ function App() {
   const [activeVideo, setActiveVideo] = useState({});
 
   return (
-    <div>
+    <div className="body">
       <Navbar />
       <Routes>
         <Route

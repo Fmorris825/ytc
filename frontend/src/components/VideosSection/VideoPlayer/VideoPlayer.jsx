@@ -8,7 +8,7 @@ const VideoPlayer = ({ videoId, activeVideo }) => {
 
   return (
     <div>
-      <Container>
+      <div>
         <h1>{activeVideo.title}</h1>
         <iframe
           id="ytplayer"
@@ -36,7 +36,7 @@ const VideoPlayer = ({ videoId, activeVideo }) => {
         <Container>
           <Link to="/">Search Again!</Link>
         </Container>
-      </Container>
+      </div>
     </div>
   );
 };

@@ -13,19 +13,19 @@ const VideoCards = ({ setVideoId, result, setActiveVideo }) => {
 
   return (
     // <Link to="/VideoPlayer">
-    <div className="d-flex justify-content-start m-5 flex-direction">
+    <div className="d-flex justify-content-start  flex-direction shadow p-3 m-2">
       <img
-        className="shadow"
+        className="rounded pointer"
         src={result.snippet.thumbnails.default.url}
         onClick={handleSelection}
       />
       <div className="d-flex align-items-center flex-direction: row">
-        <h6
-          className="d-flex justify-content-start m-2"
+        <p
+          className="d-flex justify-content-start m-2 pointer"
           onClick={handleSelection}
         >
           {result.snippet.title}
-        </h6>
+        </p>
         <div className="d-flex justify-content-start m-2">
           {result.snippet.channelTitle}{" "}
         </div>

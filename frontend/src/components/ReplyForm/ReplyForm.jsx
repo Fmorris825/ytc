@@ -1,28 +1,23 @@
 import React, { useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import { FormControl, FormGroup, Form, Button } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
 
-import {
-  FormLabel,
-  FormControl,
-  FormGroup,
-  Form,
-  Button,
-} from "react-bootstrap";
+const ReplyForm = ({ comment, getAllReplies }) => {
+  const [replyText, setReplyText] = useState("");
+  const [user, token] = useAuth();
 
-const CommentForm = ({ getAllComments, videoId, token }) => {
-  const [commentText, setCommentText] = useState("");
-
-  async function addComment() {
-    let newComment = {
-      text: commentText,
-      video_id: videoId,
+  console.log(replyText);
+  async function addReply() {
+    let newReply = {
+      text: replyText,
+      comment: comment.id,
     };
 
     try {
       let response = await axios.post(
-        `http://127.0.0.1:8000/api/comments/`,
-        newComment,
+        `http://127.0.0.1:8000/api/comments/${comment.id}/replies/`,
+        newReply,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -30,7 +25,7 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
         }
       );
       if (response.status === 201) {
-        await getAllComments();
+        await getAllReplies();
       }
     } catch (error) {
       console.log(error.response.data);
@@ -39,29 +34,28 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addComment();
-    setCommentText("");
+    addReply();
+    setReplyText("");
   };
 
   return (
     <Form className="d-flex  flex-column m-3" onSubmit={handleSubmit}>
-      <FormLabel>What do you want to comment?</FormLabel>
       <div className="d-flex align-items-center">
         <FormGroup>
           <FormControl
-            placeholder="Comment Here?"
+            placeholder="Reply to Comment?"
             className="shadow-sm p-1 mb-1 bg-body rounded input-box"
             type="text"
-            onChange={(event) => setCommentText(event.target.value)}
-            value={commentText}
+            onChange={(event) => setReplyText(event.target.value)}
+            value={replyText}
           />
         </FormGroup>
         <Button className="button" variant="success" type="submit">
-          Comment
+          Reply
         </Button>
       </div>
     </Form>
   );
 };
 
-export default CommentForm;
+export default ReplyForm;

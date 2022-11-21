@@ -1,5 +1,14 @@
-.comment{
-    border: 2px solid darkgray;
-    border-radius: 4px;
-    margin: 0;
+.comment {
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.comment-text {
+  font-size: 14px;
+}
+
+.comment-user {
+  font-size: 20px;
+  font-weight: 700;
 }
