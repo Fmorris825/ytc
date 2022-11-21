@@ -1,11 +1,10 @@
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
-
 import { Container } from "react-bootstrap";
 import CommentList from "../../CommentsSection/CommentList/CommentList";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
 import "./VideoPage.css";
+import { useParams } from "react-router-dom";
 
 const VideoPage = ({
   videoId,

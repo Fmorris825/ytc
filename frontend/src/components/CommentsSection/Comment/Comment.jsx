@@ -22,7 +22,7 @@ const Comment = ({ comment, user, token }) => {
     );
     setReplies(response.data);
   }
-  return (
+  return user ? (
     <div className=" d-flex flex-column justify-content-start align-items-start">
       <div className="comment-user">{comment.user.username}:</div>
       <div className="comment-text">{comment.text}</div>
@@ -32,6 +32,12 @@ const Comment = ({ comment, user, token }) => {
         getAllReplies={getAllReplies}
         token={token}
       />
+    </div>
+  ) : (
+    <div className=" d-flex flex-column justify-content-start align-items-start">
+      <div className="comment-user">{comment.user.username}:</div>
+      <div className="comment-text">{comment.text}</div>
+      <ReplyList replies={replies} token={token} />{" "}
     </div>
   );
 };
