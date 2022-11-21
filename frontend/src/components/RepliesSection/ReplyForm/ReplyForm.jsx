@@ -49,7 +49,7 @@ const ReplyForm = ({ comment, getAllReplies }) => {
             value={replyText}
           />
         </FormGroup>
-        <Button className="button" variant="success" type="submit">
+        <Button className="button" type="submit">
           Reply
         </Button>
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import "./Reply.css";
 
 const Reply = ({ reply }) => {
-  console.log(reply);
   return (
     <div className="ms-2 me-auto d-flex flex-column justify-content-end align-items-end">
       <div className="reply-user">{reply.user.username}:</div>

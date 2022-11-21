@@ -70,17 +70,22 @@ img:hover {
 }
 
 .button {
-  color: #ffac1c;
+  background-color: #007fff;
   box-shadow: 3px 3px 8px darkgray;
   margin: 5px;
 }
 
 .body {
   position: relative;
-  background-color: whitesmoke;
+  background-color: #c5e7f0;
 }
 
 .shadow {
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+  background-color: #c5e7f0;
+  height: 100vh;
 }

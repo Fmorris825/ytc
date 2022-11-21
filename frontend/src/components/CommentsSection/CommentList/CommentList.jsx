@@ -5,6 +5,7 @@ import Comment from "../Comment/Comment";
 import useAuth from "../../../hooks/useAuth";
 import { Container, ListGroup, ListGroupItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./CommentList.css";
 
 const CommentList = ({ videoId }) => {
   const [comments, setComments] = useState([]);
@@ -33,7 +34,7 @@ const CommentList = ({ videoId }) => {
             return (
               <ListGroupItem
                 as="li"
-                className="flex-column justify-content-start align-items-start m-1 shadow"
+                className="flex-column justify-content-start align-items-start m-1 shadow comment_body"
               >
                 {
                   <Comment

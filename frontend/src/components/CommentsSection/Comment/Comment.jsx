@@ -23,7 +23,7 @@ const Comment = ({ comment, user, token }) => {
     setReplies(response.data);
   }
   return (
-    <div className="ms-2 me-auto d-flex flex-column justify-content-start align-items-start">
+    <div className=" d-flex flex-column justify-content-start align-items-start">
       <div className="comment-user">{comment.user.username}:</div>
       <div className="comment-text">{comment.text}</div>
       <ReplyList replies={replies} token={token} />

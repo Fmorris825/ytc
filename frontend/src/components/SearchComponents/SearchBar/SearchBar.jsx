@@ -20,9 +20,7 @@ const SearchBar = ({ setQuery }) => {
         value={tempQuery}
         onChange={(event) => setTempQuery(event.target.value)}
       />
-      <Button className="button" variant="success">
-        Okay go
-      </Button>
+      <Button className="button">Okay go</Button>
     </form>
   );
 };

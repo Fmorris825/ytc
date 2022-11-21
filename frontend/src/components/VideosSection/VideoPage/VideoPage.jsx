@@ -16,7 +16,7 @@ const VideoPage = ({
 }) => {
   return (
     <div className="d-flex">
-      <div className="comment-column d-flex">
+      <div className="comment-column d-flex justify-content-center">
         <CommentList videoId={videoId} token={token} />
       </div>
       <Container className="video-column">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import "./CommentForm.css";
 
 import {
   FormLabel,
@@ -45,7 +46,7 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
 
   return (
     <Form className="d-flex  flex-column m-3" onSubmit={handleSubmit}>
-      <FormLabel>What do you want to comment?</FormLabel>
+      <div className="form-title">What do you want to comment?</div>
       <div className="d-flex align-items-center">
         <FormGroup>
           <FormControl
@@ -56,7 +57,7 @@ const CommentForm = ({ getAllComments, videoId, token }) => {
             value={commentText}
           />
         </FormGroup>
-        <Button className="button" variant="success" type="submit">
+        <Button className="button" type="submit">
           Comment
         </Button>
       </div>

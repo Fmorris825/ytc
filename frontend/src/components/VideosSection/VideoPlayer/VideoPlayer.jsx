@@ -21,7 +21,6 @@ const VideoPlayer = ({ videoId, activeVideo }) => {
         <div className="d-flex justify-content-start">
           <Button
             className="button"
-            variant="success"
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
             aria-expanded={open}
