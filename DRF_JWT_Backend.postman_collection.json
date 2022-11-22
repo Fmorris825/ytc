@@ -296,6 +296,27 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Youtube_APIs",
+			"item": [
+				{
+					"name": "GetSearchResults",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
