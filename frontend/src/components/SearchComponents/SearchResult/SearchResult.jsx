@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./SearchResult.css";
 
 const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
   const navigate = useNavigate();
@@ -15,13 +16,13 @@ const SearchResult = ({ setVideoId, result, setActiveVideo }) => {
     // <Link to="/VideoPlayer">
     <div className="d-flex justify-content-start m-5">
       <img
-        className="shadow mb-10 bg-white rounded pointer"
+        className="shadow mb-10 bg-white rounded pointer thumbnail"
         src={result.snippet.thumbnails.medium.url}
         onClick={handleSelection}
       />
       <div className="d-flex align-items-center flex-direction: row">
         <h6
-          className="d-flex justify-content-start m-2 pointer"
+          className="d-flex justify-content-start m-2 pointer text-shadow"
           onClick={handleSelection}
         >
           {result.snippet.title}

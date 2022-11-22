@@ -25,7 +25,7 @@ const Comment = ({ comment, user, token }) => {
   return (
     <div className=" d-flex flex-column justify-content-start align-items-start">
       <div className="comment-user">{comment.user.username}:</div>
-      <div className="comment-text">{comment.text}</div>
+      <div className="comment-text comment shadow">{comment.text}</div>
       <ReplyList replies={replies} token={token} />
       <ReplyForm
         comment={comment}
