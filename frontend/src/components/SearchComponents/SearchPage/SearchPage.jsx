@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import API_KEYS from "../../../API_KEYS";
 
 const SearchPage = ({ setVideoId, setActiveVideo }) => {
-  const [query, setQuery] = useState("9/11 peaches inside job");
+  const [query, setQuery] = useState("Best React Tutorials");
   const [searchResults, setSearchResults] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const SearchPage = ({ setVideoId, setActiveVideo }) => {
   return searchResults ? (
     <Container>
       <SearchBar query={query} setQuery={setQuery} />
+      <h2 className="m-3">Search Results:</h2>
       <div>
         {searchResults.items.map((result, index) => {
           return (

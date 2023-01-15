@@ -15,7 +15,7 @@ const SearchBar = ({ setQuery }) => {
       <input
         type="text"
         required
-        placeholder="Tell me what you want, what you really really want"
+        placeholder="What kind of videos are you searching for?"
         size="50"
         value={tempQuery}
         onChange={(event) => setTempQuery(event.target.value)}
